@@ -1,8 +1,8 @@
 diff --git a/pyproject.toml b/pyproject.toml
-index cb0b0e7..5d94f7a 100644
+index d090d92..22fe386 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
-@@ -29,7 +29,7 @@ keywords = ["msilib"]
+@@ -30,7 +30,7 @@ keywords = ["msilib"]
  license = "PSF-2.0"
  license-files = ["LICENSE"]
  readme = "README.md"
@@ -12,24 +12,34 @@ index cb0b0e7..5d94f7a 100644
  [[project.authors]]
  name = "Marcelo Duarte"
 diff --git a/tests/test_msilib.py b/tests/test_msilib.py
-index 3dbdd40..b65f75a 100644
+index 45388d1..d3dd0d2 100644
 --- a/tests/test_msilib.py
 +++ b/tests/test_msilib.py
-@@ -1,6 +1,7 @@
- """Test suite for the code in msilib."""
+@@ -3,15 +3,15 @@
+ from __future__ import annotations
  
  import os
 +import sys
+ from typing import TYPE_CHECKING
  
  import pytest
  
-@@ -97,6 +98,9 @@ def test_directory_start_component_keyfile(db, tmp_path) -> None:
+ if TYPE_CHECKING:
+     from collections.abc import Generator
+-    from pathlib import Path
+-
+     from msilib._msi import _Database
++    from pathlib import Path
+ 
+ msilib = pytest.importorskip("msilib", reason="Windows tests")
+ schema = pytest.importorskip("msilib.schema", reason="Windows tests")
+@@ -108,6 +108,9 @@ def test_directory_start_component_keyfile(
          msilib._directories.clear()  # noqa: SLF001
  
  
 +@pytest.mark.skipif(
 +    sys.version_info[:2] < (3, 13), reason="Only for Python 3.13+"
 +)
- def test_large_package(db, tmp_path) -> None:
+ def test_large_package(db: _Database, tmp_path: Path) -> None:
      root_dir = tmp_path / "root"
      root_dir.mkdir()
