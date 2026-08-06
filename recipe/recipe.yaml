@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: python-msilib
-  version: "0.6.0"
+  version: "0.7.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name|replace("-", "_") }}-${{ version }}.tar.gz
-  sha256: 47a6c16aa8528b797bd81e71cc544505b5444543319dbaf12011123b750c9d3c
+  sha256: 1f9369ffd470be26d8ea89537b8789aa4a3fcbe348e960f39201e47658f1bcef
   patches:
     - py310.patch
 
@@ -26,7 +26,7 @@ requirements:
   host:
     - python
     - pip
-    - setuptools >=78.1.1,<83
+    - setuptools >=78.1.1,<84
   run:
     - python
 
