@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: python-msilib
-  version: "0.7.2"
+  version: "0.7.3"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name|replace("-", "_") }}-${{ version }}.tar.gz
-  sha256: 2e4175bbcaa7238b84077f7aa5fc77370e1d182daecca930e726a098f0d8c07e
+  sha256: 09f35b2d56e4d771e679326b292e257bf4a06fbfc6c57ffd62125c60327832b7
   patches:
     - py310.patch
 
